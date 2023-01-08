@@ -71,7 +71,7 @@ public class SwerveModule {
     m_driveEncoder.setVelocityConversionFactor(ModuleConstants.kDriveEncoderDistancePerPulse);
 
     // Set whether drive encoder should be reversed or not
-    m_driveEncoder.setInverted(driveEncoderReversed);
+    m_driveMotor.setInverted(driveEncoderReversed);
 
     // Set the distance (in this case, angle) in radians per pulse for the turning encoder.
     // This is the the angle through an entire rotation (2 * pi) divided by the
