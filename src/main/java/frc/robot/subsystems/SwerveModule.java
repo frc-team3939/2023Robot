@@ -134,4 +134,16 @@ public class SwerveModule {
     m_driveEncoder.setPosition(0);
     m_turningEncoder.reset();
   }
+
+  /**
+   * Gets quadruture drive Encoder position.
+   * @return Position of drive encoder.
+   */
+  public double getDriveEncoder() {
+    return m_driveEncoder.getPosition();
+  }
+
+  public double getAngleEncoder() {
+    return m_turningEncoder.getDistance();
+  }
 }
