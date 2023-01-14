@@ -20,7 +20,7 @@ import frc.robot.RobotContainer.*;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-
+  private DriveSubsystem drive;
   private RobotContainer m_robotContainer;
   //public static DriveSubsystem drive;
 
@@ -34,6 +34,8 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     //drive = new DriveSubsystem();
     m_robotContainer = new RobotContainer();
+    drive = m_robotContainer.m_robotDrive;
+    drive.resetEncoders();
   }
 
   /**

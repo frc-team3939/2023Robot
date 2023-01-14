@@ -148,10 +148,12 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative, double dead) {
-    if (Math.sqrt(xSpeed * xSpeed + ySpeed * ySpeed) < dead) {
+    if (xSpeed < dead) {
       xSpeed = 0;
-      ySpeed = 0;
     } 
+    if (ySpeed < dead) {
+      ySpeed = 0;
+    }
     var swerveModuleStates =
         DriveConstants.kDriveKinematics.toSwerveModuleStates(
             fieldRelative

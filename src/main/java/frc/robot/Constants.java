@@ -44,9 +44,9 @@ public final class Constants {
     public static final int[] kFrontRightDriveEncoderPorts = new int[] {12, 13};
     public static final int[] kRearRightDriveEncoderPorts = new int[] {14, 15};
 
-    public static final boolean kFrontLeftDriveEncoderReversed = false;
+    public static final boolean kFrontLeftDriveEncoderReversed = true;
     public static final boolean kRearLeftDriveEncoderReversed = true;
-    public static final boolean kFrontRightDriveEncoderReversed = false;
+    public static final boolean kFrontRightDriveEncoderReversed = true;
     public static final boolean kRearRightDriveEncoderReversed = true;
 
     public static final double kTrackWidth = 0.51435;
@@ -90,7 +90,7 @@ public final class Constants {
 
     
 
-    public static final double kPModuleTurningController = 1;
+    public static final double kPModuleTurningController = 1.6;
 
     public static final double kPModuleDriveController = 1;
   }

@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class RobotContainer {
   // The robot's subsystems
-  private final DriveSubsystem m_robotDrive = new DriveSubsystem();
+  final DriveSubsystem m_robotDrive = new DriveSubsystem();
 
   // The driver's controller
   Joystick m_driverController = new Joystick(OIConstants.kDriverControllerPort);   
@@ -52,8 +52,8 @@ public class RobotContainer {
                     m_driverController.getY(),
                     m_driverController.getX(),
                     m_driverController.getZ(),
-                    false,
-                    0.15),
+                    true,
+                    0.20),
             m_robotDrive));
   }
 
