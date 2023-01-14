@@ -96,6 +96,7 @@ public class DriveSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Back Left Angle Encoder Pos", m_rearLeft.getAngleEncoder());
     SmartDashboard.putNumber("Back Right Drive Encoder Pos", m_rearRight.getDriveEncoder());
     SmartDashboard.putNumber("Back Right Angle Encoder Pos", m_rearRight.getAngleEncoder());
+    SmartDashboard.putNumber("Gyro Heading", m_gyro.getYaw());
   }
 
   /**
@@ -133,6 +134,24 @@ public class DriveSubsystem extends SubsystemBase {
    * @param fieldRelative Whether the provided x and y speeds are relative to the field.
    */
   public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative) {
+    var swerveModuleStates =
+        DriveConstants.kDriveKinematics.toSwerveModuleStates(
+            fieldRelative
+                ? ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rot, Rotation2d.fromDegrees(m_gyro.getYaw()))
+                : new ChassisSpeeds(xSpeed, ySpeed, rot));
+    SwerveDriveKinematics.desaturateWheelSpeeds(
+        swerveModuleStates, DriveConstants.kMaxSpeedMetersPerSecond);
+    m_frontLeft.setDesiredState(swerveModuleStates[0]);
+    m_frontRight.setDesiredState(swerveModuleStates[1]);
+    m_rearLeft.setDesiredState(swerveModuleStates[2]);
+    m_rearRight.setDesiredState(swerveModuleStates[3]);
+  }
+
+  public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative, double dead) {
+    if (Math.sqrt(xSpeed * xSpeed + ySpeed * ySpeed) < 0.2) {
+      xSpeed = 0;
+      ySpeed = 0;
+    } 
     var swerveModuleStates =
         DriveConstants.kDriveKinematics.toSwerveModuleStates(
             fieldRelative

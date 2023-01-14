@@ -34,9 +34,9 @@ public final class Constants {
     public static final int[] kFrontRightTurningEncoderPorts = new int[] {0, 1};
     public static final int[] kRearRightTurningEncoderPorts = new int[] {6, 7};
 
-    public static final boolean kFrontLeftTurningEncoderReversed = false;
+    public static final boolean kFrontLeftTurningEncoderReversed = true;
     public static final boolean kRearLeftTurningEncoderReversed = true;
-    public static final boolean kFrontRightTurningEncoderReversed = false;
+    public static final boolean kFrontRightTurningEncoderReversed = true;
     public static final boolean kRearRightTurningEncoderReversed = true;
 
     public static final int[] kFrontLeftDriveEncoderPorts = new int[] {8, 9};
