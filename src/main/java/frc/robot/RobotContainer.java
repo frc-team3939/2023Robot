@@ -52,7 +52,8 @@ public class RobotContainer {
                     m_driverController.getY(),
                     m_driverController.getX(),
                     m_driverController.getZ(),
-                    false),
+                    false,
+                    0.15),
             m_robotDrive));
   }
 

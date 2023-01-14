@@ -148,7 +148,7 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative, double dead) {
-    if (Math.sqrt(xSpeed * xSpeed + ySpeed * ySpeed) < 0.2) {
+    if (Math.sqrt(xSpeed * xSpeed + ySpeed * ySpeed) < dead) {
       xSpeed = 0;
       ySpeed = 0;
     } 
